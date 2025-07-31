@@ -1,43 +1,47 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
-
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    int escolha1, escolha2;
+    int forca1 = 80, forca2 = 70;
+    int velocidade1 = 60, velocidade2 = 90;
+    int inteligencia1 = 75, inteligencia2 = 75;
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    int soma1 = 0, soma2 = 0;
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    printf("Escolha o PRIMEIRO atributo para comparar:\n");
+    printf("1. Força\n2. Velocidade\n3. Inteligência\n");
+    scanf("%d", &escolha1);
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    printf("Escolha o SEGUNDO atributo para comparar:\n");
+    scanf("%d", &escolha2);
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    for (int i = 0; i < 2; i++) {
+        int esc = (i == 0) ? escolha1 : escolha2;
+        switch (esc) {
+            case 1:
+                soma1 += forca1;
+                soma2 += forca2;
+                break;
+            case 2:
+                soma1 += velocidade1;
+                soma2 += velocidade2;
+                break;
+            case 3:
+                soma1 += inteligencia1;
+                soma2 += inteligencia2;
+                break;
+            default:
+                printf("Atributo inválido!\n");
+        }
+    }
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+    printf("Resultado final:\n");
+    printf("Carta 1: %d pontos\n", soma1);
+    printf("Carta 2: %d pontos\n", soma2);
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    (soma1 > soma2) ? printf("Carta 1 vence!\n") :
+    (soma1 < soma2) ? printf("Carta 2 vence!\n") :
+    printf("Empate!\n");
 
     return 0;
 }
